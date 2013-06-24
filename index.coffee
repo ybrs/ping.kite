@@ -14,11 +14,11 @@ manifest = require "./manifest.json"
 
 pinger = kite.worker manifest,
 
-
   consumeque:(options, callback)->
     console.log "options", options
     if callback
-      callback(false, "#{options.args[0]} processed")
+      @db.hset "pinger_processed", "#{options.args[0]}", 1, ()->
+        callback(false, "#{options.args[0]} processed")
 
   pong: (options, callback)->
     console.log "received pong"
@@ -37,15 +37,14 @@ pinger = kite.worker manifest,
     callback()
 
   start: (options, callback)->
-    for i in [1..100]
+    for i in [1..3]
       console.log ">>> ", i
-      @queue "consumeque", ["world_#{i}"], (err, ret)->
+      @queue "consumeque", ["worldx_#{i}"], (err, ret)->
         console.log "queue command returned", arguments
   , true
   #   @everyone "ping", [options], (reply)->
   #     console.log "here", reply
   # , true
-
 
 pinger.on 'running', ()->
   pinger.call 'start', [], ()->
