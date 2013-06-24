@@ -1,0 +1,31 @@
+{
+  "devMode": true,
+  "version": "1",
+  "name": "ping",
+  "type": "worker",
+  "identifier": "com.koding.kites.ping",
+  "path": "~/Kites/ping.kite",
+  "homepage": "devrim.koding.com/kites/ping",
+  "author": "devrim",
+  "mergen": "local.koding.com:6380",
+  "repository": "git://github.com/devrim/ping.kite.git",
+  "description": "ping : a Koding kite",
+  "category": "web-api",
+  "source": {
+    "blocks": {
+      "kite": {
+        "files": [
+          "./index.coffee"
+        ]
+      }
+    }
+  },
+  "options": {
+    "privacy": "private"
+  },
+  "icns": {
+    "128": "./resources/icon.128.png"
+  },
+  "dependencies": [],
+  "apiAddress": "http://local.koding.com"
+}

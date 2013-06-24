@@ -1,0 +1,7 @@
+{
+  "name": "ping.kite",
+  "main": "index.js",
+  "dependencies": {
+    "redis": "latest"
+  }
+}
