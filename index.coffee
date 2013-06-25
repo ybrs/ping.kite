@@ -39,7 +39,7 @@ pinger = kite.worker manifest,
   start: (options, callback)->
     for i in [1..3]
       console.log ">>> ", i
-      @queue "consumeque", ["worldx_#{i}"], (err, ret)->
+      @queue null, "consumeque", ["worldx_#{i}"], (err, ret)->
         console.log "queue command returned", arguments
   , true
   #   @everyone "ping", [options], (reply)->
